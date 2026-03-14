@@ -1,0 +1,209 @@
+:root {
+    --bg: #0D0D0D;
+    --purple: #7B61FF;
+    --blue: #00C2FF;
+    --white: #FFFFFF;
+    --glass: rgba(255, 255, 255, 0.05);
+    --border: rgba(255, 255, 255, 0.1);
+}
+
+/* 1. БАЗОВЫЕ НАСТРОЙКИ */
+* { 
+    box-sizing: border-box; 
+    -webkit-tap-highlight-color: transparent; 
+    margin: 0; 
+    padding: 0; 
+}
+
+body { 
+    background: var(--bg); 
+    font-family: 'Inter', sans-serif; 
+    color: var(--white); 
+    line-height: 1.4; 
+    overflow-x: hidden; 
+}
+
+.container { 
+    width: 100%; 
+    max-width: 450px; 
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.02); 
+    border-radius: 40px; 
+    padding: 50px 20px 140px; 
+    border: 1px solid var(--border); 
+    backdrop-filter: blur(20px); 
+}
+
+/* 2. ШАПКА */
+.header { text-align: center; margin-bottom: 35px; }
+.avatar { 
+    width: 115px; height: 115px; margin: 0 auto 20px; border-radius: 40px; 
+    background-size: cover; background-position: center;
+    border: 2px solid var(--purple); box-shadow: 0 0 30px rgba(123, 97, 255, 0.3); 
+}
+h1 { 
+    font-size: 34px; font-weight: 800; 
+    background: linear-gradient(135deg, #fff 30%, var(--purple) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.tagline { font-size: 10px; font-weight: 700; color: var(--blue); letter-spacing: 2.5px; text-transform: uppercase; }
+.insta-link {
+    display: inline-flex; align-items: center; gap: 8px; margin-top: 15px; 
+    padding: 8px 16px; background: rgba(255, 255, 255, 0.05); border-radius: 100px; 
+    color: var(--blue); text-decoration: none; font-size: 13px; font-weight: 600; border: 1px solid rgba(0, 194, 255, 0.2);
+}
+
+/* 3. СТАТИСТИКА */
+.stats-grid { display: flex; gap: 12px; margin-bottom: 40px; }
+.stat-card { flex: 1; padding: 22px 10px; border-radius: 26px; text-align: center; }
+.purple-grad { background: linear-gradient(135deg, var(--purple), #5641cc); }
+.blue-grad { background: linear-gradient(135deg, var(--blue), #0098cc); }
+.num { font-size: 26px; font-weight: 800; }
+.unit { font-size: 18px; font-weight: 700; }
+
+/* 4. СЕКЦИИ И АККОРДЕОНЫ */
+.section { margin-bottom: 45px; }
+.title { 
+    font-size: 17px; font-weight: 700; margin-bottom: 20px; text-transform: uppercase; 
+    letter-spacing: 1px; border-left: 3px solid var(--purple); padding-left: 15px;
+}
+.accordion { background: var(--glass); border-radius: 22px; border: 1px solid var(--border); margin-bottom: 12px; overflow: hidden; }
+.accordion-header { padding: 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-size: 15px; font-weight: 600; }
+.accordion-header span { display: flex; align-items: center; gap: 12px; }
+.accordion-content { padding: 0 20px; max-height: 0; overflow: hidden; transition: 0.4s ease-out; font-size: 14px; color: rgba(255,255,255,0.7); }
+.accordion.active .accordion-content { padding-bottom: 20px; max-height: 800px; }
+
+/* Текст внутри аккордеонов */
+.accordion-content p {
+    margin-bottom: 12px !important; display: flex !important; align-items: flex-start !important;
+    justify-content: flex-start !important; text-align: left !important; gap: 10px;
+}
+.accordion-content p i { margin-top: 4px; flex-shrink: 0; }
+
+/* 5. ЭТАПЫ РАБОТЫ */
+.work-steps { display: flex; flex-direction: column; gap: 12px; margin-top: 5px; }
+.w-step { display: flex; align-items: flex-start; gap: 12px; font-size: 13px; line-height: 1.4; }
+.w-step span {
+    background: var(--purple); color: white; min-width: 20px; height: 20px; border-radius: 5px; 
+    display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 10px; flex-shrink: 0; margin-top: 2px;
+}
+
+/* 6. ОТЗЫВЫ (ИСПРАВЛЕНО) */
+.reviews-container {
+    display: flex; gap: 15px; overflow-x: auto; padding: 10px 5px 20px; 
+    scrollbar-width: none; scroll-snap-type: x mandatory;
+}
+.reviews-container::-webkit-scrollbar { display: none; }
+
+.review-card {
+    min-width: 260px; max-width: 280px; flex-shrink: 0; scroll-snap-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3); border-radius: 20px; overflow: hidden;
+}
+.review-img {
+    width: 100%; height: 380px; object-fit: cover; display: block;
+    cursor: pointer; transition: 0.3s; border: 1px solid var(--border);
+}
+.review-img:hover { transform: scale(1.02); }
+
+/* 7. МОДАЛЬНОЕ ОКНО */
+.modal {
+    display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.95); backdrop-filter: blur(10px); justify-content: center; align-items: center;
+}
+.modal-content { max-width: 90%; max-height: 85%; border-radius: 15px; border: 1px solid var(--border); }
+.close-modal { position: absolute; top: 40px; right: 30px; color: white; font-size: 40px; cursor: pointer; }
+
+/* 8. АУДИТОРИЯ И КАЛЬКУЛЯТОР */
+.audience-card { background: var(--glass); padding: 25px; border-radius: 28px; border: 1px solid var(--border); }
+.g-label, .geo-row { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 10px; }
+.track { background: rgba(255,255,255,0.05); height: 8px; border-radius: 10px; margin-bottom: 20px; overflow: hidden; }
+.fill { height: 100%; background: var(--purple); width: 0; transition: 1.5s ease-out; }
+.age-grid { display: flex; justify-content: space-between; align-items: flex-end; height: 80px; padding: 0 10px; }
+.bar { width: 14px; height: 60px; background: rgba(255,255,255,0.05); border-radius: 10px; position: relative; overflow: hidden; }
+.fill-v { position: absolute; bottom: 0; width: 100%; height: 0; background: var(--purple); transition: 1.5s ease-out; }
+
+.calc-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; cursor: pointer; }
+.calc-info { display: flex; align-items: center; gap: 15px; font-size: 15px; }
+input[type="checkbox"].service { appearance: none; width: 22px; height: 22px; border: 2px solid var(--purple); border-radius: 7px; position: relative; cursor: pointer; }
+input[type="checkbox"].service:checked { background: var(--purple); }
+input[type="checkbox"].service:checked::after { content: '✓'; position: absolute; color: white; font-size: 14px; left: 4px; top: -1px; }
+.total-area { margin-top: 25px; padding-top: 20px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+.total-price { font-size: 22px; font-weight: 800; color: var(--purple); }
+
+/* 9. СТОП-ЛИСТ */
+.stop-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+.stop-grid span { background: rgba(255, 77, 77, 0.1); color: #ff4d4d; padding: 6px 12px; border-radius: 100px; font-size: 11px; font-weight: 600; border: 1px solid rgba(255, 77, 77, 0.2); }
+
+/* 10. ФУТЕР */
+.sticky-footer { position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 420px; z-index: 1000; }
+.footer-row { display: flex; gap: 12px; align-items: center; }
+.insta-btn-circle { width: 58px; height: 58px; flex-shrink: 0; border-radius: 20px; display: flex; align-items: center; justify-content: center; background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: white; font-size: 24px; text-decoration: none; }
+.main-cta { flex-grow: 1; height: 58px; display: flex; align-items: center; justify-content: center; background: var(--white); color: #000; border-radius: 20px; text-decoration: none; font-weight: 800; font-size: 14px; box-shadow: 0 15px 40px rgba(0,0,0,0.4); }
+
+/* 11. АНИМАЦИИ */
+.reveal { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+.sticky-top-bar {
+    position: sticky;
+    top: -20px; /* Чтобы немного заходила за край при скролле */
+    left: 0; width: 100%;
+    padding: 15px 20px;
+    background: rgba(13, 13, 13, 0.8);
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1100;
+    border-bottom: 1px solid var(--border);
+    margin: -30px -20px 30px -20px; /* Компенсируем паддинги контейнера */
+}
+
+.mini-profile { display: flex; align-items: center; gap: 10px; }
+.mini-avatar { width: 30px; height: 30px; border-radius: 10px; background-size: cover; border: 1px solid var(--purple); }
+.status-dot { font-size: 10px; color: #4ade80; display: flex; align-items: center; gap: 5px; text-transform: uppercase; font-weight: 700; }
+.status-dot::before { content: ""; width: 6px; height: 6px; background: #4ade80; border-radius: 50%; box-shadow: 0 0 10px #4ade80; }
+
+/* Кнопки вкладок */
+.tabs-nav {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid var(--border);
+    background: var(--glass);
+    color: rgba(255, 255, 255, 0.6);
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tab-btn.active {
+    background: var(--purple);
+    color: #fff;
+    border-color: var(--purple);
+    box-shadow: 0 5px 15px rgba(123, 97, 255, 0.3);
+}
+
+/* Логика показа/скрытия */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
