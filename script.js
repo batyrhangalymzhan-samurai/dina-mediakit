@@ -98,3 +98,12 @@ function openTab(evt, tabName) {
     document.getElementById(tabName).classList.add('active');
     evt.currentTarget.classList.add('active');
 }
+
+function openFullImage(src) {
+    const modal = document.getElementById('imageModal');
+    const fullImg = document.getElementById('fullImg');
+    if (modal && fullImg) {
+        modal.style.display = "flex";
+        fullImg.src = src;
+    }
+}
