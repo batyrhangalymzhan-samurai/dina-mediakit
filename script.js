@@ -27,12 +27,12 @@ function updateTotal() {
             btn.innerText = `ЗАКАЗАТЬ ЗА ${total.toLocaleString('ru-RU')} ₸`;
             btn.style.background = 'var(--purple)';
             btn.style.color = '#fff';
-            btn.href = `https://wa.me/77055755098?text=Здравствуйте!%20Хочу%20заказать%20рекламу.%20Примерная%20сумма:%20${total}%20тенге`;
+            btn.href = `https://wa.me/77478046435?text=Здравствуйте!%20Хочу%20заказать%20рекламу.%20Примерная%20сумма:%20${total}%20тенге`;
         } else {
             btn.innerText = 'ОБСУДИТЬ СОТРУДНИЧЕСТВО';
             btn.style.background = '#fff';
             btn.style.color = '#000';
-            btn.href = `https://wa.me/77055755098`;
+            btn.href = `https://wa.me/77478046435`;
         }
     }
 }
