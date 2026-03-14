@@ -206,4 +206,25 @@ input[type="checkbox"].service:checked::after { content: '✓'; position: absolu
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
+
+    /* Стили для увеличения фото */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 9999; 
+    top: 0; left: 0; 
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.9); 
+    align-items: center; 
+    justify-content: center;
+    cursor: pointer;
+}
+
+.modal-content {
+    max-width: 95%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(123, 97, 255, 0.5);
+    object-fit: contain;
+}
 }
